@@ -39,8 +39,8 @@ class MdiController{
     resizableWindow.x =  rng.nextDouble() * 500;
     resizableWindow.y =  rng.nextDouble() * 500;
 
-    //Init onScreenResized
-    resizableWindow.onScreenResized = (dx,dy){
+    //Init onWindowDragged
+    resizableWindow.onWindowDragged = (dx,dy){
 
       resizableWindow.x += dx;
       resizableWindow.y += dy;

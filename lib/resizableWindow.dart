@@ -8,7 +8,7 @@ class ResizableWindow extends StatefulWidget {
   String title;
   Widget body;
 
-  Function(double, double) onScreenResized;
+  Function(double, double) onWindowDragged;
   VoidCallback onCloseButtonClicked;
 
 
@@ -168,7 +168,7 @@ class _ResizableWindowState extends State<ResizableWindow> {
   _getHeader() {
     return GestureDetector(
       onPanUpdate: (tapInfo) {
-        widget.onScreenResized(tapInfo.delta.dx, tapInfo.delta.dy);
+        widget.onWindowDragged(tapInfo.delta.dx, tapInfo.delta.dy);
       },
       child: Container(
         width: widget.currentWidth,
@@ -212,7 +212,7 @@ class _ResizableWindowState extends State<ResizableWindow> {
       if (widget.currentWidth < widget.defaultWidth) {
         widget.currentWidth = widget.defaultWidth;
       } else {
-        widget.onScreenResized(details.delta.dx, 0);
+        widget.onWindowDragged(details.delta.dx, 0);
       }
     });
   }
@@ -243,7 +243,7 @@ class _ResizableWindowState extends State<ResizableWindow> {
       if (widget.currentHeight < widget.defaultHeight) {
         widget.currentHeight = widget.defaultHeight;
       } else {
-        widget.onScreenResized(0, details.delta.dy);
+        widget.onWindowDragged(0, details.delta.dy);
       }
     });
   }
